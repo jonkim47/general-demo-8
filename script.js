@@ -10,6 +10,7 @@ function addHeaderNavClickListeners() {
 // Create an Action Card
 function generateActionCard(action, index) {
   const actionCard = document.createElement("div");
+  actionCard.setAttribute("id", index);
   actionCard.classList.add("col-md-4", "mb-4");
 
   actionCard.innerHTML = `
@@ -28,7 +29,7 @@ function generateActionCard(action, index) {
   return actionCard;
 }
 
-// Initiate creating the 6 Action Cards that are on the main page bottom section 
+// Initiate creating the 6 Action Cards that are on the main page bottom section
 function generateActionCards() {
   const actionRow = getElById("actionRow");
   ACTIONS.forEach((action, index) => {
@@ -43,18 +44,15 @@ function getDynamicProperties() {
   const propertyInputs = document.querySelectorAll(
     "#actionModal input.form-control"
   );
-  const propertyNames = document.querySelectorAll(
-    ".seg-property-name"
-  );
-  
+  const propertyNames = document.querySelectorAll(".seg-property-name");
+
   for (let i = 0; i < propertyInputs.length; i++) {
     const input = propertyInputs[i];
     const propertyValue = input.value;
-    const propName = normalizePropertyName(propertyNames[i].textContent); 
+    const propName = normalizePropertyName(propertyNames[i].textContent);
     dynamicProperties[propName] = propertyValue;
     //console.log(propName + ", " + propertyValue);
   }
-
 
   // propertyInputs.forEach((input) => {
   //   const propertyName = normalizePropertyName(
@@ -97,20 +95,19 @@ function addLiveCodePreviewTriggers() {
 
   // Add a change event listenter to each key value input
   const propertyInputs = document.querySelectorAll(
-    "#actionModal input.form-control" 
+    "#actionModal input.form-control"
   );
   propertyInputs.forEach((input) => {
     input.addEventListener("change", updateLiveCodePreview);
   });
 
-   // Add an input event listener to each property name field
-   const propertyNameInputs = document.querySelectorAll(
+  // Add an input event listener to each property name field
+  const propertyNameInputs = document.querySelectorAll(
     "#actionModal .col-md-4[contenteditable='true']"
   );
   propertyNameInputs.forEach((input) => {
     input.addEventListener("input", updateLiveCodePreview);
   });
- 
 
   //run the code Preview for the first time
   updateLiveCodePreview();
@@ -207,11 +204,10 @@ function addModalTriggerListeners() {
 function addSegmentBtnListener() {
   const segmentButton = getElById("segmentButton"); // Move it here
   segmentButton.addEventListener("click", () => {
-
     // Get the Title and Description from the Modal
     const titleInput = getElById("actionModalLabel");
     const descriptionInput = getElById("actionModalDescription");
-    
+
     // Get the action info
     const actionIndex = parseInt(segmentButton.getAttribute("data-action-id"));
     const actionInfo = ACTIONS[actionIndex];
