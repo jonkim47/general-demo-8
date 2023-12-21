@@ -17,7 +17,7 @@ const JUMBO_CARDS = [
 
 const ACTIONS = [
   {
-    eventName: "", // TODO
+    eventName: "Account Opened", // TODO
     title: "Open Account",
     image: "./assets/open-account.jpeg",
     description:
@@ -30,7 +30,7 @@ const ACTIONS = [
     ],
   },
   {
-    eventName: "", // TODO
+    eventName: "Funds Transferred", // TODO
     title: "Transfer Funds",
     image: "./assets/transfer-funds.jpeg",
     description:
@@ -44,7 +44,7 @@ const ACTIONS = [
     ],
   },
   {
-    eventName: "", // TODO
+    eventName: "Security Stock Purchased", // TODO
     title: "Purchase Crypto",
     image: "./assets/purchase-crypto.jpeg",
     description:
@@ -56,43 +56,42 @@ const ACTIONS = [
     ],
   },
   {
-    eventName: "", // TODO
+    eventName: "Security Stock Sold", // TODO
     title: "Manage Investments",
     image: "./assets/manage-investments.jpeg",
     description:
       "Buy or sell various types of investments, such as stocks, bonds, or mutual funds, to actively manage or grow your investment portfolio.",
     properties: [
       { name: "Investment Portfolio", value: "Stocks" },
-      { name: "Investment Amount", value: "$10,000" },
-      { name: "Risk Tolerance", value: "Conservative" },
+      { name: "Sale Price", value: "$10,000" },
       { name: "Investment Time Horizon", value: "Short-term" },
     ],
   },
   {
-    eventName: "", // TODO
+    eventName: "Bill Paid", // TODO
     title: "Pay Bills",
     image: "./assets/pay-bills.jpeg",
     description:
       "Make payments for bills, loans, or recurring expenses through your financial account, often with the option to set up automated payments for convenience.",
     properties: [
-      { name: "Biller Information", value: "Name of the Company" },
+      { name: "Biller Information", value: "Acme Corp." },
       { name: "Bill Amount", value: "$100" },
-      { name: "Payment Date", value: "Due Date" },
+      { name: "Payment Date", value: "1/1/2020" },
       { name: "Payment Method", value: "Online Banking" },
     ],
   },
   {
-    eventName: "", // TODO
+    eventName: "Customer Support Requested", // TODO
     title: "Request Customer Support",
     image: "./assets/customer-support.jpeg",
     description:
       "Contact customer support to seek assistance with account-related issues, resolve problems, or ask questions regarding products and services.",
     properties: [
-      { name: "Customer Name", value: "Your Name" },
-      { name: "Contact Information", value: "Email" },
+      { name: "Customer Name", value: "" },
+      { name: "Contact Information", value: "" },
       { name: "Issue Description", value: "Transaction Inquiry" },
       { name: "Priority Level", value: "High" },
-      { name: "Request Timestamp", value: "Date and Time of Request" },
+      { name: "Request Timestamp", value: "1/1/2020" },
     ],
   },
 ];
