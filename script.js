@@ -75,11 +75,15 @@ function updateLiveCodePreview() {
     description: descriptionElement.textContent, // Use textContent instead of value
     ...getDynamicProperties(),
   };
+  const modalForm = document.querySelector("#actionModal .action-content");
+  const eventName = modalForm.getAttribute("data-event");
 
   const liveCodeContent = liveCodeBlock.querySelector("code");
-  liveCodeContent.textContent = `analytics.track('${
-    updatedTrackEvent.title
-  }', ${JSON.stringify(updatedTrackEvent, null, 2)});`;
+  liveCodeContent.textContent = `analytics.track('${eventName}', ${JSON.stringify(
+    updatedTrackEvent,
+    null,
+    2
+  )});`;
 
   // Trigger highlight.js syntax highlighting
   hljs.highlightElement(liveCodeContent);
@@ -159,6 +163,7 @@ function generateActionModalContent(action) {
   modalDescription.textContent = action.description;
 
   const modalForm = document.querySelector("#actionModal .action-content");
+  modalForm.setAttribute("data-event", action.eventName);
   modalForm.innerHTML = ""; // Clear previous fields
 
   if (action.properties.length > 0) {
