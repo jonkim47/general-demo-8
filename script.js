@@ -51,7 +51,6 @@ function getDynamicProperties() {
     const propertyValue = input.value;
     const propName = normalizePropertyName(propertyNames[i].textContent);
     dynamicProperties[propName] = propertyValue;
-    //console.log(propName + ", " + propertyValue);
   }
 
   // propertyInputs.forEach((input) => {
@@ -220,7 +219,7 @@ function addSegmentBtnListener() {
     };
 
     // Track the event using Segment with the computed property names
-    analytics.track(titleInput.textContent, trackEvent);
+    analytics.track(actionInfo.eventName, trackEvent);
   });
 }
 
@@ -311,7 +310,37 @@ function addLogout() {
     });
 }
 
+function addJumboCards() {
+  const jumboCardContainer = document.querySelector(
+    ".features .container .row"
+  );
+
+  JUMBO_CARDS.forEach(
+    (card) =>
+      (jumboCardContainer.innerHTML += `
+      <div class="col-md-6">
+        <div class="feature card h-100">
+          <div
+            class="card-body d-flex flex-column align-items-stretch h-100"
+          >      
+            <h2 class="feature-title">${card.title}</h2>
+            <img
+              src="${card.image}"
+              alt="Feature Image"
+              class="feature-image"
+            />
+            <p class="feature-description">
+              ${card.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    `)
+  );
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  addJumboCards();
   addHeaderNavClickListeners();
   generateActionCards();
   addModalTriggerListeners();
